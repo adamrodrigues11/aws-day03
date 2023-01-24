@@ -8,7 +8,7 @@ const app = express();
 
 const upload = multer({ dest: 'images/' });
 
-app.use(express.static("build"))
+app.use(express.static("dist"));
 
 // get all image data from database
 app.get("/api/images", async (req, res) => {
@@ -33,7 +33,7 @@ app.post("/api/images", upload.single('image'), async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-    res.sendFile('build/index.html')
+    res.sendFile('dist/index.html')
 });
 
 const port = process.env.PORT || 8080;

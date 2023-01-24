@@ -32,8 +32,8 @@ app.post("/api/images", upload.single('image'), async (req, res) => {
     res.send({image});
 });
 
-app.get('*', (req, res) => {
-    res.sendFile('build/index.html')
+app.get('./*', (req, res) => {
+    res.sendFile('./build/index.html')
 });
 
 const port = process.env.PORT || 8080;
